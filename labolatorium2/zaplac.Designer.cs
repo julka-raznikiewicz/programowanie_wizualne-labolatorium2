@@ -81,18 +81,19 @@
             // 
             // button1
             // 
-            button1.Location = new Point(511, 262);
+            button1.Location = new Point(430, 262);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 4;
             button1.Text = "zapłać";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // zaplac
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(675, 450);
             Controls.Add(button1);
             Controls.Add(radioButton4);
             Controls.Add(radioButton3);

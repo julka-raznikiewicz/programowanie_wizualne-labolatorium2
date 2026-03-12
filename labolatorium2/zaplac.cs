@@ -16,5 +16,10 @@ namespace labolatorium2
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var potwierdzenie = MessageBox.Show("potwierdzenie zapłaty");
+        }
     }
 }

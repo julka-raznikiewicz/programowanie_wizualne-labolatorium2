@@ -24,5 +24,10 @@ namespace labolatorium2
             var guzik_zaplac = new zaplac();
             guzik_zaplac.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

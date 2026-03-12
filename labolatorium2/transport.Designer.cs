@@ -66,7 +66,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(479, 193);
+            button1.Location = new Point(154, 274);
             button1.Name = "button1";
             button1.Size = new Size(112, 41);
             button1.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(549, 450);
             Controls.Add(button1);
             Controls.Add(checkBox3);
             Controls.Add(checkBox2);
