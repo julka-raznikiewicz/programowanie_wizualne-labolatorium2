@@ -1,33 +1,96 @@
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
 namespace labolatorium2
 {
     public partial class Form1 : Form
     {
+        private List<string> koszyk = new List<string>();
+        private decimal suma = 0;
+        private string transport = "Brak";
+        private decimal kosztTransportu = 0;
+        private string platnosc = "Nie wybrano";
+        private decimal rabat = 0;
+        private string wpisanyKod = "";
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OdswiezKoszyk()
         {
-            var guzik_wybierz = new wybierz();
-            guzik_wybierz.Show();
+            listViewKoszyk.Items.Clear();
+
+            foreach (string item in koszyk)
+            {
+                string[] dane = item.Split('-');
+                ListViewItem lvi = new ListViewItem(dane[0].Trim());
+                lvi.SubItems.Add(dane[1].Trim() + " z³");
+                listViewKoszyk.Items.Add(lvi);
+            }
+
+            decimal calosc = suma + kosztTransportu - rabat;
+            labelCena.Text = $"Cena: {calosc} z³";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonWybierz_Click(object sender, EventArgs e)
         {
-            var guzik_transport = new transport();
-            guzik_transport.Show();
+            wybierz formProdukty = new wybierz();
+
+            if (formProdukty.ShowDialog() == DialogResult.OK)
+            {
+                koszyk.Add($"{formProdukty.WybranyProdukt} - {formProdukty.WybranaCena}");
+                suma += formProdukty.WybranaCena;
+                OdswiezKoszyk();
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonTransport_Click(object sender, EventArgs e)
         {
-            var guzik_zaplac = new zaplac();
-            guzik_zaplac.Show();
+            transport formDostawa = new transport();
+
+            if (formDostawa.ShowDialog() == DialogResult.OK)
+            {
+                transport = formDostawa.WybranyTransport;
+                kosztTransportu = formDostawa.CenaTransportu;
+                OdswiezKoszyk();
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void buttonZaplac_Click(object sender, EventArgs e)
         {
+            zaplac formPlatnosc = new zaplac();
+            formPlatnosc.ShowDialog();
+        }
 
+        private void buttonRabat_Click(object sender, EventArgs e)
+        {
+            rabat formRabat = new rabat();
+
+            if (formRabat.ShowDialog() == DialogResult.OK)
+            {
+                wpisanyKod = formRabat.KodRabatu;
+
+                if (wpisanyKod == "STUDENT")
+                {
+                    rabat = 10;
+                    MessageBox.Show("Kod poprawny! Przyznano rabat 10 z³.");
+                }
+                else if (wpisanyKod == "PIZZA")
+                {
+                    rabat = 5;
+                    MessageBox.Show("Kod poprawny! Przyznano rabat 5 z³.");
+                }
+                else
+                {
+                    rabat = 0;
+                    MessageBox.Show("Niepoprawny kod rabatowy.");
+                }
+
+                OdswiezKoszyk();
+            }
         }
     }
 }

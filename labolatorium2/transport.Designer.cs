@@ -28,60 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            button1 = new Button();
+            checkBoxDowoz = new CheckBox();
+            checkBoxEkspres = new CheckBox();
+            checkBoxOdbiorOsobisty = new CheckBox();
+            buttonOK = new Button();
+            buttonAnuluj = new Button();
             SuspendLayout();
             // 
-            // checkBox1
+            // checkBoxDowoz
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(154, 77);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(82, 29);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "kurier";
-            checkBox1.UseVisualStyleBackColor = true;
+            checkBoxDowoz.AutoSize = true;
+            checkBoxDowoz.Location = new Point(154, 77);
+            checkBoxDowoz.Name = "checkBoxDowoz";
+            checkBoxDowoz.Size = new Size(92, 29);
+            checkBoxDowoz.TabIndex = 0;
+            checkBoxDowoz.Text = "dowóz";
+            checkBoxDowoz.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxEkspres
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(154, 141);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(125, 29);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "paczkomat";
-            checkBox2.UseVisualStyleBackColor = true;
+            checkBoxEkspres.AutoSize = true;
+            checkBoxEkspres.Location = new Point(154, 141);
+            checkBoxEkspres.Name = "checkBoxEkspres";
+            checkBoxEkspres.Size = new Size(98, 29);
+            checkBoxEkspres.TabIndex = 1;
+            checkBoxEkspres.Text = "ekspres";
+            checkBoxEkspres.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxOdbiorOsobisty
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(154, 205);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(151, 29);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "odbiór własny";
-            checkBox3.UseVisualStyleBackColor = true;
+            checkBoxOdbiorOsobisty.AutoSize = true;
+            checkBoxOdbiorOsobisty.Location = new Point(154, 205);
+            checkBoxOdbiorOsobisty.Name = "checkBoxOdbiorOsobisty";
+            checkBoxOdbiorOsobisty.Size = new Size(151, 29);
+            checkBoxOdbiorOsobisty.TabIndex = 2;
+            checkBoxOdbiorOsobisty.Text = "odbiór własny";
+            checkBoxOdbiorOsobisty.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonOK
             // 
-            button1.Location = new Point(154, 274);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 41);
-            button1.TabIndex = 3;
-            button1.Text = "wybierz";
-            button1.UseVisualStyleBackColor = true;
+            buttonOK.Location = new Point(154, 274);
+            buttonOK.Name = "buttonOK";
+            buttonOK.Size = new Size(112, 41);
+            buttonOK.TabIndex = 3;
+            buttonOK.Text = "wybierz";
+            buttonOK.UseVisualStyleBackColor = true;
+            buttonOK.Click += buttonOK_Click;
+            // 
+            // buttonAnuluj
+            // 
+            buttonAnuluj.Location = new Point(309, 277);
+            buttonAnuluj.Name = "buttonAnuluj";
+            buttonAnuluj.Size = new Size(112, 34);
+            buttonAnuluj.TabIndex = 4;
+            buttonAnuluj.Text = "Anuluj";
+            buttonAnuluj.UseVisualStyleBackColor = true;
             // 
             // transport
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(549, 450);
-            Controls.Add(button1);
-            Controls.Add(checkBox3);
-            Controls.Add(checkBox2);
-            Controls.Add(checkBox1);
+            Controls.Add(buttonAnuluj);
+            Controls.Add(buttonOK);
+            Controls.Add(checkBoxOdbiorOsobisty);
+            Controls.Add(checkBoxEkspres);
+            Controls.Add(checkBoxDowoz);
             Name = "transport";
             Text = "transport";
             ResumeLayout(false);
@@ -90,9 +102,10 @@
 
         #endregion
 
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private Button button1;
+        private CheckBox checkBoxDowoz;
+        private CheckBox checkBoxEkspres;
+        private CheckBox checkBoxOdbiorOsobisty;
+        private Button buttonOK;
+        private Button buttonAnuluj;
     }
 }

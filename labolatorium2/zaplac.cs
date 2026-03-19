@@ -12,6 +12,7 @@ namespace labolatorium2
 {
     public partial class zaplac : Form
     {
+        private Form1 formularzGlowny;
         public zaplac()
         {
             InitializeComponent();

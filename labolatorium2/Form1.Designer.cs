@@ -28,70 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            textBox1 = new TextBox();
+            listViewKoszyk = new ListView();
+            Produkt = new ColumnHeader();
+            Cena = new ColumnHeader();
+            buttonWybierz = new Button();
+            buttonTransport = new Button();
+            buttonZaplac = new Button();
+            labelCena = new Label();
+            buttonRabat = new Button();
             SuspendLayout();
             // 
-            // listView1
+            // listViewKoszyk
             // 
-            listView1.Location = new Point(45, 30);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(251, 344);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            listViewKoszyk.Columns.AddRange(new ColumnHeader[] { Produkt, Cena });
+            listViewKoszyk.Location = new Point(76, 36);
+            listViewKoszyk.Name = "listViewKoszyk";
+            listViewKoszyk.Size = new Size(251, 344);
+            listViewKoszyk.TabIndex = 0;
+            listViewKoszyk.UseCompatibleStateImageBehavior = false;
+            listViewKoszyk.View = View.Details;
             // 
-            // button1
+            // buttonWybierz
             // 
-            button1.Location = new Point(444, 139);
-            button1.Name = "button1";
-            button1.Size = new Size(171, 46);
-            button1.TabIndex = 1;
-            button1.Text = "wybierz";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonWybierz.Location = new Point(444, 139);
+            buttonWybierz.Name = "buttonWybierz";
+            buttonWybierz.Size = new Size(171, 46);
+            buttonWybierz.TabIndex = 1;
+            buttonWybierz.Text = "wybierz";
+            buttonWybierz.UseVisualStyleBackColor = true;
+            buttonWybierz.Click += buttonWybierz_Click;
             // 
-            // button2
+            // buttonTransport
             // 
-            button2.Location = new Point(444, 209);
-            button2.Name = "button2";
-            button2.Size = new Size(171, 47);
-            button2.TabIndex = 2;
-            button2.Text = "transport";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonTransport.Location = new Point(444, 209);
+            buttonTransport.Name = "buttonTransport";
+            buttonTransport.Size = new Size(171, 47);
+            buttonTransport.TabIndex = 2;
+            buttonTransport.Text = "transport";
+            buttonTransport.UseVisualStyleBackColor = true;
+            buttonTransport.Click += buttonTransport_Click;
             // 
-            // button3
+            // buttonZaplac
             // 
-            button3.Location = new Point(444, 281);
-            button3.Name = "button3";
-            button3.Size = new Size(171, 45);
-            button3.TabIndex = 3;
-            button3.Text = "zapłać";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            buttonZaplac.Location = new Point(444, 335);
+            buttonZaplac.Name = "buttonZaplac";
+            buttonZaplac.Size = new Size(171, 45);
+            buttonZaplac.TabIndex = 3;
+            buttonZaplac.Text = "zapłać";
+            buttonZaplac.UseVisualStyleBackColor = true;
+            buttonZaplac.Click += buttonZaplac_Click;
             // 
-            // textBox1
+            // labelCena
             // 
-            textBox1.Location = new Point(444, 43);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(171, 31);
-            textBox1.TabIndex = 4;
-            textBox1.TextChanged += textBox1_TextChanged;
+            labelCena.AutoSize = true;
+            labelCena.Location = new Point(488, 64);
+            labelCena.Name = "labelCena";
+            labelCena.Size = new Size(55, 25);
+            labelCena.TabIndex = 4;
+            labelCena.Text = "Cena:";
+            // 
+            // buttonRabat
+            // 
+            buttonRabat.Location = new Point(444, 276);
+            buttonRabat.Name = "buttonRabat";
+            buttonRabat.Size = new Size(171, 39);
+            buttonRabat.TabIndex = 5;
+            buttonRabat.Text = "rabat";
+            buttonRabat.UseVisualStyleBackColor = true;
+            buttonRabat.Click += buttonRabat_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(buttonRabat);
+            Controls.Add(labelCena);
+            Controls.Add(buttonZaplac);
+            Controls.Add(buttonTransport);
+            Controls.Add(buttonWybierz);
+            Controls.Add(listViewKoszyk);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -100,10 +116,13 @@
 
         #endregion
 
-        private ListView listView1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private TextBox textBox1;
+        private ListView listViewKoszyk;
+        private Button buttonWybierz;
+        private Button buttonTransport;
+        private Button buttonZaplac;
+        private Label labelCena;
+        private ColumnHeader Produkt;
+        private ColumnHeader Cena;
+        private Button buttonRabat;
     }
 }

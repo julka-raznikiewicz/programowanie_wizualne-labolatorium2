@@ -12,19 +12,35 @@ namespace labolatorium2
 {
     public partial class wybierz : Form
     {
+        public string WybranyProdukt { get; set; }
+        public decimal WybranaCena { get; set; }
         public wybierz()
         {
             InitializeComponent();
-            listBox1.Items.Add("Pizza - 25 zł");
-            listBox1.Items.Add("Burger - 18 zł");
-            listBox1.Items.Add("Frytki - 10 zł");
-            listBox1.Items.Add("Kebab - 22 zł");
-            listBox1.Items.Add("Cola - 7 zł");
-        }
+            listViewProdukty.View = View.Details;
+            listViewProdukty.FullRowSelect = true;
+            listViewProdukty.Columns.Add("Produkt", 120);
+            listViewProdukty.Columns.Add("Cena", 80);
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+            listViewProdukty.Items.Add(new ListViewItem(new string[] { "Pizza", "30" }));
+            listViewProdukty.Items.Add(new ListViewItem(new string[] { "Burger", "25" }));
+            listViewProdukty.Items.Add(new ListViewItem(new string[] { "Frytki", "10" }));
+            listViewProdukty.Items.Add(new ListViewItem(new string[] { "Kebab", "22" }));
+        }
+        private void buttonDodaj_Click(object sender, EventArgs e)
         {
-            
+            if (listViewProdukty.SelectedItems.Count > 0)
+            {
+                WybranyProdukt = listViewProdukty.SelectedItems[0].SubItems[0].Text;
+                WybranaCena = decimal.Parse(listViewProdukty.SelectedItems[0].SubItems[1].Text);
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
+        private void buttonAnuluj_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }
